@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio Indra Agustin</title>
+    <link href="./dist/output.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <script>
+      (function () {
+        const html = document.documentElement;
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme === "dark") {
+          html.classList.add("dark");
+        } else {
+          html.classList.remove("dark");
+        }
+      })();
+    </script>
+
+    <style>
+      html,
+      body {
+        -ms-overflow-style: none; /* IE & Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+      html::-webkit-scrollbar,
+      body::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-800 dark:bg-[#0f172a] dark:text-[#f1f5f9] transition-colors duration-300 relative overflow-x-hidden">
+    <div class="absolute top-0 left-0 w-full h-screen overflow-hidden -z-10">
+      <div class="absolute -top-40 -right-40 w-[800px] h-[800px] rounded-full bg-green-400/30 blur-3xl animate-pulse"></div>
+      <div class="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full bg-sky-500/30 blur-3xl animate-pulse"></div>
+    </div>
+
+    <header class="sticky top-0 z-50 p-6 bg-white/30 dark:bg-[#1e293b]/30 backdrop-blur-md shadow-md transition-colors duration-300">
+      <nav class="container mx-auto flex justify-between items-center">
+        <div class="text-xl font-bold tracking-wider"><span class="text-[#3b82f6]">&lt;</span>IA Codes<span class="text-[#3b82f6]">></span></div>
+        <div class="flex items-center space-x-6">
+          <ul class="hidden md:flex space-x-6">
+            <li><a href="#beranda" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Beranda</a></li>
+            <li><a href="about.html" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Tentang Saya</a></li>
+            <li><a href="#portofolio" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Portofolio</a></li>
+            <li><a href="experience.html" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Pengalaman</a></li>
+            <li><a href="skills.html" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Skills</a></li>
+          </ul>
+          <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <i id="sun-icon" class="fa-solid fa-sun text-yellow-500 hidden"></i>
+            <i id="moon-icon" class="fa-solid fa-moon text-blue-400"></i>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="beranda" class="relative flex items-center py-40 overflow-hidden px-6">
+        <div class="container mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
+          <div class="space-y-4 max-w-xl text-center md:text-left">
+            <p class="text-xl text-[#3b82f6] animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">Halo Semua 👋, saya</p>
+            <h1 class="text-4xl md:text-6xl font-extrabold leading-tight dark:text-[#f1f5f9] animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-200">Indra Agustin</h1>
+            <p class="text-2xl font-light dark:text-gray-300 animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-400">Seorang Junior <span class="font-semibold text-[#3b82f6]">Web Developer</span></p>
+            <p class="italic text-gray-500 dark:text-gray-400 animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-600">"Imagination is more important than knowledge" - Albert Einstein</p>
+            <div class="flex space-x-4 pt-4 justify-center md:justify-start animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-800">
+              <a href="#tentang-saya" class="bg-[#3b82f6] text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-600 transition-colors"> Tentang Saya </a>
+              <a href="#" download class="bg-transparent border border-[#3b82f6] text-[#3b82f6] px-6 py-3 rounded-lg font-semibold hover:bg-[#3b82f6] hover:text-white transition-colors"> Download CV </a>
+            </div>
+          </div>
+          <div class="relative z-10 mt-10 md:mt-0 animate-on-scroll opacity-0 transition-opacity duration-1000 ease-in-out delay-1000">
+            <img src="assets/Foto.jpg" alt="Foto profil Indra Agustin" class="w-64 h-64 md:w-80 md:h-80 object-cover rounded-full shadow-lg border-4 border-[#3b82f6] dark:border-gray-300 transition-colors duration-300" />
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="w-full bg-white text-gray-800 dark:bg-slate-900 dark:text-slate-200 relative z-10 overflow-hidden">
+      <div class="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-blue-400/20 blur-3xl -z-10"></div>
+
+      <div class="relative z-20">
+        <div class="container mx-auto px-6">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 sm:py-24">
+            <div class="flex flex-col space-y-5 animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
+              <a href="#" class="text-3xl font-bold tracking-wider text-slate-900 dark:text-slate-50">&lt;IA Codes&gt;</a>
+              <div class="flex flex-col space-y-2">
+                <p class="font-bold text-lg">Hubungi Saya</p>
+                <a href="mailto:indraagustin65@gmail.com" class="block text-gray-600 dark:text-gray-400 hover:text-blue-500 transition-colors">indraagustin65@gmail.com</a>
+              </div>
+              <div class="flex space-x-4 text-2xl text-gray-600 dark:text-gray-400">
+                <a href="#" class="hover:text-blue-500" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="hover:text-blue-500" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="hover:text-blue-500" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-blue-500" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+              </div>
+            </div>
+
+            <div class="animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-200">
+              <h4 class="font-bold text-xl mb-3 text-slate-900 dark:text-slate-50">Tautan</h4>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li><a href="#beranda" class="hover:text-blue-500">Beranda</a></li>
+                <li><a href="#tentang-saya" class="hover:text-blue-500">Tentang Saya</a></li>
+                <li><a href="#portofolio" class="hover:text-blue-500">Portofolio</a></li>
+                <li><a href="#skills" class="hover:text-blue-500">Skills</a></li>
+                <li><a href="#pendidikan" class="hover:text-blue-500">Pendidikan</a></li>
+                <li><a href="#pengalaman" class="hover:text-blue-500">Pengalaman</a></li>
+                <li><a href="#blog" class="hover:text-blue-500">Blog</a></li>
+              </ul>
+            </div>
+
+            <div class="animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-400">
+              <h4 class="font-bold text-xl mb-3 text-slate-900 dark:text-slate-50">Tag</h4>
+              <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                <li><a href="#" class="hover:text-blue-500">Programming</a></li>
+                <li><a href="#" class="hover:text-blue-500">Cloud</a></li>
+                <li><a href="#" class="hover:text-blue-500">DevOps</a></li>
+                <li><a href="#" class="hover:text-blue-500">SysAdmin</a></li>
+                <li><a href="#" class="hover:text-blue-500">Networking</a></li>
+                <li><a href="#" class="hover:text-blue-500">Linux</a></li>
+                <li><a href="#" class="hover:text-blue-500">Git</a></li>
+                <li><a href="#" class="hover:text-blue-500">Setup</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <hr class="border-gray-300 dark:border-gray-700" />
+
+          <div class="flex flex-col items-center text-center py-6 text-gray-600 dark:text-gray-400 text-sm animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-600">
+            <p>&copy; Copyright 2023 - 2025 devnull. All rights reserved.</p>
+            <div class="flex flex-wrap items-center justify-center gap-1 mt-2">
+              <span
+                >Dibuat dengan ❤️ oleh <span class="font-semibold text-slate-900 dark:text-slate-50">Indra Agustin</span>, menggunakan <span class="font-semibold text-slate-900 dark:text-slate-50">HTML</span>,
+                <span class="font-semibold text-slate-900 dark:text-slate-50">Tailwind CSS</span> dan <span class="font-semibold text-slate-900 dark:text-slate-50">JavaScript</span></span
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <button id="scroll-to-top" class="hidden fixed bottom-6 right-6 p-3 bg-gray-200 dark:bg-gray-700 rounded-full shadow-lg hover:bg-[#3b82f6] hover:text-white transition-all duration-300">
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <script>
+      const themeToggle = document.getElementById("theme-toggle");
+      const sunIcon = document.getElementById("sun-icon");
+      const moonIcon = document.getElementById("moon-icon");
+      const html = document.documentElement;
+
+      function updateIcons() {
+        if (html.classList.contains("dark")) {
+          sunIcon.classList.remove("hidden");
+          moonIcon.classList.add("hidden");
+        } else {
+          sunIcon.classList.add("hidden");
+          moonIcon.classList.remove("hidden");
+        }
+      }
+
+      // set icon awal
+      updateIcons();
+
+      themeToggle.addEventListener("click", () => {
+        html.classList.toggle("dark");
+        localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+        updateIcons();
+      });
+
+      // Scroll to top
+      const scrollBtn = document.getElementById("scroll-to-top");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 200) {
+          scrollBtn.classList.remove("hidden");
+          scrollBtn.classList.add("opacity-100");
+        } else {
+          scrollBtn.classList.add("hidden");
+          scrollBtn.classList.remove("opacity-100");
+        }
+      });
+      scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+
+      /* --- Animasi Saat Scroll --- */
+      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
+
+      const observerOptions = {
+          root: null, // menggunakan viewport sebagai root
+          rootMargin: '0px',
+          threshold: 0.1 // memicu callback ketika 10% dari elemen terlihat
+      };
+
+      const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                  // Ketika elemen terlihat, hapus kelas "tersembunyi"
+                  entry.target.classList.remove('opacity-0', 'translate-y-12', 'translate-x-12');
+                  entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
+                  // Berhenti mengamati elemen ini setelah animasinya dipicu
+                  observer.unobserve(entry.target);
+              }
+          });
+      }, observerOptions);
+
+      elementsToAnimate.forEach(element => {
+          observer.observe(element);
+      });
+    </script>
+  </body>
+</html>
