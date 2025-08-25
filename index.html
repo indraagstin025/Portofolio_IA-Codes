@@ -5,22 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portofolio Indra Agustin</title>
     <link href="./dist/output.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
-    <script>
-      (function () {
-        const html = document.documentElement;
-        const storedTheme = localStorage.getItem("theme");
-        if (storedTheme === "dark") {
-          html.classList.add("dark");
-        } else {
-          html.classList.remove("dark");
-        }
-      })();
-    </script>
-
     <style>
+      /* Sembunyikan scrollbar untuk semua browser */
       html,
       body {
         -ms-overflow-style: none; /* IE & Edge */
@@ -38,11 +27,13 @@
       <div class="absolute -bottom-24 -left-24 w-[400px] h-[400px] rounded-full bg-sky-500/30 blur-3xl animate-pulse"></div>
     </div>
 
-    <header class="sticky top-0 z-50 p-6 bg-white/30 dark:bg-[#1e293b]/30 backdrop-blur-md shadow-md transition-colors duration-300">
-      <nav class="container mx-auto flex justify-between items-center">
+    <header class="fixed top-0 left-0 right-0 z-50 p-6">
+      <div class="absolute inset-0 bg-white/30 dark:bg-[#1e293b]/30 backdrop-blur-md shadow-md transition-colors duration-300"></div>
+      <nav class="container mx-auto flex justify-between items-center relative z-20">
         <div class="text-xl font-bold tracking-wider"><span class="text-[#3b82f6]">&lt;</span>IA Codes<span class="text-[#3b82f6]">></span></div>
-        <div class="flex items-center space-x-6">
-          <ul class="hidden md:flex space-x-6">
+
+        <div class="hidden md:flex items-center space-x-6">
+          <ul class="flex space-x-6">
             <li><a href="#beranda" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Beranda</a></li>
             <li><a href="about.html" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Tentang Saya</a></li>
             <li><a href="#portofolio" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Portofolio</a></li>
@@ -54,10 +45,35 @@
             <i id="moon-icon" class="fa-solid fa-moon text-blue-400"></i>
           </button>
         </div>
+
+        <div class="md:hidden flex items-center">
+          <button id="hamburger-btn" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+            <i id="menu-open-icon" class="fa-solid fa-bars text-xl"></i>
+            <i id="menu-close-icon" class="fa-solid fa-xmark text-xl hidden"></i>
+          </button>
+        </div>
       </nav>
+
+      <div id="mobile-menu" class="md:hidden fixed top-[88px] left-0 w-full z-[100] opacity-0 -translate-y-4 pointer-events-none transition-all duration-300 ease-in-out">
+        <div class="mx-6 bg-white/30 dark:bg-[#1e293b]/30 shadow-md backdrop-blur-md rounded-2xl">
+          <ul class="flex flex-col items-center p-4 space-y-4">
+            <li><a href="#beranda" class="block py-2 dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Beranda</a></li>
+            <li><a href="about.html" class="block py-2 dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Tentang Saya</a></li>
+            <li><a href="#portofolio" class="block py-2 dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Portofolio</a></li>
+            <li><a href="experience.html" class="block py-2 dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Pengalaman</a></li>
+            <li><a href="skills.html" class="block py-2 dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Skills</a></li>
+            <li class="pt-4">
+              <button id="theme-toggle-mobile" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+                <i id="sun-icon-mobile" class="fa-solid fa-sun text-yellow-500 hidden"></i>
+                <i id="moon-icon-mobile" class="fa-solid fa-moon text-blue-400"></i>
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
     </header>
 
-    <main>
+    <main class="relative z-10">
       <section id="beranda" class="relative flex items-center py-40 overflow-hidden px-6">
         <div class="container mx-auto flex flex-col md:flex-row items-center justify-between relative z-10">
           <div class="space-y-4 max-w-xl text-center md:text-left">
@@ -130,10 +146,10 @@
           <div class="flex flex-col items-center text-center py-6 text-gray-600 dark:text-gray-400 text-sm animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out delay-600">
             <p>&copy; Copyright 2023 - 2025 devnull. All rights reserved.</p>
             <div class="flex flex-wrap items-center justify-center gap-1 mt-2">
-              <span
-                >Dibuat dengan ❤️ oleh <span class="font-semibold text-slate-900 dark:text-slate-50">Indra Agustin</span>, menggunakan <span class="font-semibold text-slate-900 dark:text-slate-50">HTML</span>,
-                <span class="font-semibold text-slate-900 dark:text-slate-50">Tailwind CSS</span> dan <span class="font-semibold text-slate-900 dark:text-slate-50">JavaScript</span></span
-              >
+              <span>
+                Dibuat dengan ❤️ oleh <span class="font-semibold text-slate-900 dark:text-slate-50">Indra Agustin</span>, menggunakan <span class="font-semibold text-slate-900 dark:text-slate-50">HTML</span>,
+                <span class="font-semibold text-slate-900 dark:text-slate-50">Tailwind CSS</span> dan <span class="font-semibold text-slate-900 dark:text-slate-50">JavaScript</span>
+              </span>
             </div>
           </div>
         </div>
@@ -144,68 +160,6 @@
       <i class="fa-solid fa-arrow-up"></i>
     </button>
 
-    <script>
-      const themeToggle = document.getElementById("theme-toggle");
-      const sunIcon = document.getElementById("sun-icon");
-      const moonIcon = document.getElementById("moon-icon");
-      const html = document.documentElement;
-
-      function updateIcons() {
-        if (html.classList.contains("dark")) {
-          sunIcon.classList.remove("hidden");
-          moonIcon.classList.add("hidden");
-        } else {
-          sunIcon.classList.add("hidden");
-          moonIcon.classList.remove("hidden");
-        }
-      }
-
-      // set icon awal
-      updateIcons();
-
-      themeToggle.addEventListener("click", () => {
-        html.classList.toggle("dark");
-        localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
-        updateIcons();
-      });
-
-      // Scroll to top
-      const scrollBtn = document.getElementById("scroll-to-top");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 200) {
-          scrollBtn.classList.remove("hidden");
-          scrollBtn.classList.add("opacity-100");
-        } else {
-          scrollBtn.classList.add("hidden");
-          scrollBtn.classList.remove("opacity-100");
-        }
-      });
-      scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-      /* --- Animasi Saat Scroll --- */
-      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-
-      const observerOptions = {
-          root: null, // menggunakan viewport sebagai root
-          rootMargin: '0px',
-          threshold: 0.1 // memicu callback ketika 10% dari elemen terlihat
-      };
-
-      const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  // Ketika elemen terlihat, hapus kelas "tersembunyi"
-                  entry.target.classList.remove('opacity-0', 'translate-y-12', 'translate-x-12');
-                  entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
-                  // Berhenti mengamati elemen ini setelah animasinya dipicu
-                  observer.unobserve(entry.target);
-              }
-          });
-      }, observerOptions);
-
-      elementsToAnimate.forEach(element => {
-          observer.observe(element);
-      });
-    </script>
+    <script src="scripts.js"></script>
   </body>
 </html>
