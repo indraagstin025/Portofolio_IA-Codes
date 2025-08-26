@@ -8,6 +8,7 @@
     <link href="./dist/output.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
 
     <script>
       (function () {
@@ -50,96 +51,162 @@
         </div>
     </div>
   
-    <header class="sticky top-0 z-50 p-6 bg-white/30 dark:bg-[#1e293b]/30 backdrop-blur-md shadow-md transition-colors duration-300">
-      <nav class="container mx-auto flex justify-between items-center">
-        <div class="text-xl font-bold tracking-wider"><span class="text-[#3b82f6]">&lt;</span>IA Codes<span class="text-[#3b82f6]">></span></div>
-        <div class="flex items-center space-x-6">
-          <ul class="hidden md:flex space-x-6">
-            <li><a href="index.html" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Beranda</a></li>
-            <li><a href="about.html" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Tentang Saya</a></li>
-            <li><a href="#portofolio" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Portofolio</a></li>
-            <li><a href="experience.html" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Pengalaman</a></li>
-            <li><a href="skills.html" class="dark:text-[#f1f5f9] hover:text-[#3b82f6] transition-colors">Skills</a></li>
-          </ul>
-          <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors">
+
+ <header class="fixed top-0 left-0 right-0 z-50">
+  <nav class="bg-white/80 dark:bg-[#1e293b]/80 backdrop-blur-md shadow-md">
+    <div class="container mx-auto px-6 py-4">
+      <div class="flex justify-between items-center">
+        <!-- Logo -->
+        <div class="text-xl font-bold tracking-wider">
+          <span class="text-[#3b82f6]">&lt;</span>IA Codes<span class="text-[#3b82f6]">&gt;</span>
+        </div>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="nav-link">Beranda</a>
+          <a href="about.html" class="nav-link">Tentang Saya</a>
+          <a href="#portofolio" class="nav-link">Portofolio</a>
+          <a href="experience.html" class="nav-link">Pengalaman</a>
+          <a href="skills.html" class="nav-link">Skills</a>
+          <a href="project.html" class="nav-link">Project</a>
+          <button id="theme-toggle" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
             <i id="sun-icon" class="fa-solid fa-sun text-yellow-500 hidden"></i>
             <i id="moon-icon" class="fa-solid fa-moon text-blue-400"></i>
           </button>
         </div>
-      </nav>
-    </header>
 
-    <main>
-      <section id="experience" class="py-20 px-6">
-        <div class="container mx-auto">
-          <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">Pengalaman & Proyek</h2>
-          <div class="relative max-w-2xl mx-auto">
-            <div class="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-gray-700"></div>
+        <!-- Mobile menu button -->
+        <button id="hamburger-btn" class="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700">
+          <i id="menu-open-icon" class="fa-solid fa-bars text-xl"></i>
+          <i id="menu-close-icon" class="fa-solid fa-xmark text-xl hidden"></i>
+        </button>
+      </div>
 
-            <div class="mb-8 flex justify-between items-center w-full right-side">
-              <div class="order-1 w-5/12"></div>
-              <div class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"></div>
-              <div class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-                <h3 class="font-bold text-lg md:text-xl text-blue-500">Magang (2021-2022)</h3>
-                <p class="text-sm leading-snug">
-                  Mendapatkan pengalaman di <strong>Telkom Corporate University</strong> dengan tugas utama memelihara server, memasang Access Point, dan mengelola jaringan Mikrotik, termasuk konfigurasi DHCP server dan switch.
-                </p>
-              </div>
-            </div>
-
-            <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-side">
-              <div class="order-1 w-5/12"></div>
-              <div class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"></div>
-              <div class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-                <h3 class="font-bold text-lg md:text-xl text-blue-500">Project: Online Library (2023)</h3>
-                <p class="text-sm leading-snug">
-                  Membangun website <strong>Online Library</strong>, sebuah sistem peminjaman buku menggunakan <strong>Laravel 10</strong>.
-                </p>
-              </div>
-            </div>
-            
-            <div class="mb-8 flex justify-between items-center w-full right-side">
-              <div class="order-1 w-5/12"></div>
-              <div class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"></div>
-              <div class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-              <h3 class="font-bold text-lg md:text-xl text-blue-500">Project: Digital Signature (2024)</h3>
-                <p class="text-sm leading-snug">
-                  Mengembangkan proyek <strong>Digital Signature</strong> menggunakan framework <strong>Python Flask</strong>, yang berfungsi untuk membuat tanda tangan digital.
-                </p>
-              </div>
-            </div>
-
-            <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-side">
-              <div class="order-1 w-5/12"></div>
-              <div class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"></div>
-              <div class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-                <h3 class="font-bold text-lg md:text-xl text-blue-500">Project: HR System (2025)</h3>
-                <p class="text-sm leading-snug">
-                  Membangun <strong>HR System</strong> dengan backend menggunakan <strong>Fiber GO</strong> (REST API) dan frontend <strong>HTML, CSS, JavaScript</strong>. Fitur utama mencakup absensi QR Code, manajemen jadwal, pengajuan izin, dan slip gaji karyawan.
-                </p>
-              </div>
-            </div>
-
-            <div class="mb-8 flex justify-between items-center w-full right-side">
-              <div class="order-1 w-5/12"></div>
-              <div class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"></div>
-              <div class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
-                <h3 class="font-bold text-lg md:text-xl text-blue-500">Project: Moodvis</h3>
-                <p class="text-sm leading-snug">
-                  Mengembangkan <strong>Moodvis</strong>, sebuah website deteksi emosi dengan <strong>Lumen PHP</strong> dan <strong>Face API.js</strong>. Aplikasi ini memiliki fitur deteksi emosi dari webcam serta laporan emosi mingguan/bulanan yang dapat diekspor ke PDF.
-                </p>
-              </div>
-            </div>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden">
+        <div class="py-4 space-y-4">
+          <a href="index.html" class="nav-link">Beranda</a>
+          <a href="about.html" class="nav-link">Tentang Saya</a>
+          <a href="#portofolio" class="nav-link">Portofolio</a>
+          <a href="experience.html" class="nav-link">Pengalaman</a>
+          <a href="skills.html" class="nav-link">Skills</a>
+          <a href="project.html" class="nav-link">Project</a>
+          <div class="pt-4">
+            <button id="theme-toggle-mobile" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200">
+              <i id="sun-icon-mobile" class="fa-solid fa-sun text-yellow-500 hidden"></i>
+              <i id="moon-icon-mobile" class="fa-solid fa-moon text-blue-400"></i>
+            </button>
           </div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
+  </nav>
+</header>
+
+    <main>
+  <section id="experience" class="py-20 md:py-32 px-6">
+    <div class="container mx-auto">
+      <h2
+        class="text-3xl md:text-4xl font-bold mb-12 text-center animate-on-scroll opacity-0 translate-y-12 transition-all duration-500 ease-out"
+      >
+        Pengalaman & Proyek
+      </h2>
+
+      <div class="relative max-w-2xl mx-auto">
+        <div class="absolute left-1/2 -translate-x-1/2 w-1 h-full bg-gray-300 dark:bg-gray-700"></div>
+
+        <div class="mb-8 flex justify-between items-center w-full right-side">
+          <div class="order-1 w-5/12"></div>
+          <div
+            class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"
+          ></div>
+          <div
+            class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-500 ease-out"
+          >
+            <h3 class="font-bold text-lg md:text-xl text-blue-500">Magang (2021-2022)</h3>
+            <p class="text-sm leading-snug">
+              Mendapatkan pengalaman di **Telkom Corporate University** dengan tugas utama
+              memelihara server, memasang Access Point, dan mengelola jaringan Mikrotik,
+              termasuk konfigurasi DHCP server dan switch.
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-side">
+          <div class="order-1 w-5/12"></div>
+          <div
+            class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"
+          ></div>
+          <div
+            class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-500 ease-out"
+          >
+            <h3 class="font-bold text-lg md:text-xl text-blue-500">Project: Online Library (2023)</h3>
+            <p class="text-sm leading-snug">
+              Membangun website **Online Library**, sebuah sistem peminjaman buku menggunakan
+              **Laravel 10**.
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-8 flex justify-between items-center w-full right-side">
+          <div class="order-1 w-5/12"></div>
+          <div
+            class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"
+          ></div>
+          <div
+            class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-500 ease-out"
+          >
+            <h3 class="font-bold text-lg md:text-xl text-blue-500">Project: Digital Signature (2024)</h3>
+            <p class="text-sm leading-snug">
+              Mengembangkan proyek **Digital Signature** menggunakan framework **Python Flask**,
+              yang berfungsi untuk membuat tanda tangan digital.
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-side">
+          <div class="order-1 w-5/12"></div>
+          <div
+            class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"
+          ></div>
+          <div
+            class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-500 ease-out"
+          >
+            <h3 class="font-bold text-lg md:text-xl text-blue-500">Project: HR System (2025)</h3>
+            <p class="text-sm leading-snug">
+              Membangun **HR System** dengan backend menggunakan **Fiber GO** (REST API) dan
+              frontend **HTML, CSS, JavaScript**. Fitur utama mencakup absensi QR Code, manajemen
+              jadwal, pengajuan izin, dan slip gaji karyawan.
+            </p>
+          </div>
+        </div>
+
+        <div class="mb-8 flex justify-between items-center w-full right-side">
+          <div class="order-1 w-5/12"></div>
+          <div
+            class="z-10 flex items-center order-1 bg-blue-500 shadow-xl w-6 h-6 rounded-full"
+          ></div>
+          <div
+            class="order-1 w-5/12 px-6 py-4 rounded-lg shadow-xl animate-on-scroll opacity-0 translate-y-12 transition-all duration-500 ease-out"
+          >
+            <h3 class="font-bold text-lg md:text-xl text-blue-500">Project: Moodvis</h3>
+            <p class="text-sm leading-snug">
+              Mengembangkan **Moodvis**, sebuah website deteksi emosi dengan **Lumen PHP** dan
+              **Face API.js**. Aplikasi ini memiliki fitur deteksi emosi dari webcam serta laporan
+              emosi mingguan/bulanan yang dapat diekspor ke PDF.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
 
     <footer class="w-full bg-white text-gray-800 dark:bg-slate-900 dark:text-slate-200 relative z-10 overflow-hidden">
       <div class="absolute bottom-0 right-0 w-[600px] h-[600px] rounded-full bg-blue-400/20 blur-3xl -z-10"></div>
       <div class="relative z-20">
         <div class="container mx-auto px-6">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 sm:py-24 animate-on-scroll opacity-0 translate-y-12 transition-all duration-1000 ease-out">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-12 py-16 sm:py-24 animate-on-scroll opacity-0 translate-y-12 transition-all duration-500 ease-out">
             <div class="flex flex-col space-y-5">
               <a href="#" class="text-3xl font-bold tracking-wider text-slate-900 dark:text-slate-50">&lt;IA Codes&gt;</a>
               <div class="flex flex-col space-y-2">
@@ -194,63 +261,7 @@
       <i class="fa-solid fa-arrow-up"></i>
     </button>
   
-    <script>
-      const themeToggle = document.getElementById("theme-toggle");
-      const sunIcon = document.getElementById("sun-icon");
-      const moonIcon = document.getElementById("moon-icon");
-      const html = document.documentElement;
-
-      function updateIcons() {
-        if (html.classList.contains("dark")) {
-          sunIcon.classList.remove("hidden");
-          moonIcon.classList.add("hidden");
-        } else {
-          sunIcon.classList.add("hidden");
-          moonIcon.classList.remove("hidden");
-        }
-      }
-      updateIcons();
-      themeToggle.addEventListener("click", () => {
-        html.classList.toggle("dark");
-        localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
-        updateIcons();
-      });
-
-      const scrollBtn = document.getElementById("scroll-to-top");
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 200) {
-          scrollBtn.classList.remove("hidden");
-          scrollBtn.classList.add("opacity-100");
-        } else {
-          scrollBtn.classList.add("hidden");
-          scrollBtn.classList.remove("opacity-100");
-        }
-      });
-      scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-      
-      window.addEventListener("load", () => {
-          const preloader = document.getElementById("preloader");
-          preloader.classList.add("opacity-0", "invisible");
-      });
-      
-      const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-      const observerOptions = {
-          root: null,
-          rootMargin: '0px',
-          threshold: 0.1
-      };
-      const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                  entry.target.classList.remove('opacity-0', 'translate-y-12', 'translate-x-12');
-                  entry.target.classList.add('opacity-100', 'translate-y-0', 'translate-x-0');
-                  observer.unobserve(entry.target);
-              }
-          });
-      }, observerOptions);
-      elementsToAnimate.forEach(element => {
-          observer.observe(element);
-      });
+    <script src="scripts.js">
     </script>
 </body>
 </html>

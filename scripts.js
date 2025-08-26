@@ -8,45 +8,61 @@ const html = document.documentElement;
 const header = document.querySelector("header");
 
 function updateIcons() {
-  if (html.classList.contains("dark")) {
-    sunIcon.classList.remove("hidden");
-    moonIcon.classList.add("hidden");
-  } else {
-    sunIcon.classList.add("hidden");
-    moonIcon.classList.remove("hidden");
+  // Pengecekan agar tidak error jika elemen tidak ditemukan
+  if (sunIcon && moonIcon) {
+    if (html.classList.contains("dark")) {
+      sunIcon.classList.remove("hidden");
+      moonIcon.classList.add("hidden");
+    } else {
+      sunIcon.classList.add("hidden");
+      moonIcon.classList.remove("hidden");
+    }
   }
 }
 updateIcons();
 
-themeToggle.addEventListener("click", () => {
-  html.classList.toggle("dark");
-  localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
-  updateIcons();
-});
+// Pastikan themeToggle ada sebelum menambahkan event listener
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    html.classList.toggle("dark");
+    localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+    updateIcons();
+  });
+}
 
 const scrollBtn = document.getElementById("scroll-to-top");
 
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 200) {
-    scrollBtn.classList.remove("hidden");
-    scrollBtn.classList.add("opacity-100");
-  } else {
-    scrollBtn.classList.add("hidden");
-    scrollBtn.classList.remove("opacity-100");
+  // Pengecekan untuk scrollBtn
+  if (scrollBtn) {
+    if (window.scrollY > 200) {
+      scrollBtn.classList.remove("hidden");
+      scrollBtn.classList.add("opacity-100");
+    } else {
+      scrollBtn.classList.add("hidden");
+      scrollBtn.classList.remove("opacity-100");
+    }
   }
 
-  // Header sudah memiliki backdrop-blur dari HTML, jadi kita hanya perlu mengatur opacity
-  const headerBg = header.querySelector(".absolute"); // Mengambil div background
-  if (window.scrollY > 50) {
-    headerBg.classList.remove("bg-white/30", "dark:bg-[#1e293b]/30");
-    headerBg.classList.add("bg-white/80", "dark:bg-[#1e293b]/80");
-  } else {
-    headerBg.classList.remove("bg-white/80", "dark:bg-[#1e293b]/80");
-    headerBg.classList.add("bg-white/30", "dark:bg-[#1e293b]/30");
+  // Pengecekan untuk header dan headerBg
+  if (header) {
+    const headerBg = header.querySelector(".absolute");
+    if (headerBg) {
+      if (window.scrollY > 50) {
+        headerBg.classList.remove("bg-white/30", "dark:bg-[#1e293b]/30");
+        headerBg.classList.add("bg-white/80", "dark:bg-[#1e293b]/80");
+      } else {
+        headerBg.classList.remove("bg-white/80", "dark:bg-[#1e293b]/80");
+        headerBg.classList.add("bg-white/30", "dark:bg-[#1e293b]/30");
+      }
+    }
   }
 });
 
-scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+// Pastikan scrollBtn ada sebelum menambahkan event listener
+if (scrollBtn) {
+  scrollBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
+}
 
 // =================================================================
 // Bagian Animasi Saat Scroll
@@ -77,54 +93,107 @@ const themeToggleMobile = document.getElementById("theme-toggle-mobile");
 const sunIconMobile = document.getElementById("sun-icon-mobile");
 const moonIconMobile = document.getElementById("moon-icon-mobile");
 
+// Fungsi untuk update icon mobile
 function updateMobileIcons() {
-  if (html.classList.contains("dark")) {
-    sunIconMobile.classList.remove("hidden");
-    moonIconMobile.classList.add("hidden");
-  } else {
-    sunIconMobile.classList.add("hidden");
-    moonIconMobile.classList.remove("hidden");
+  // Pengecekan agar tidak error
+  if (sunIconMobile && moonIconMobile) {
+    if (html.classList.contains("dark")) {
+      sunIconMobile.classList.remove("hidden");
+      moonIconMobile.classList.add("hidden");
+    } else {
+      sunIconMobile.classList.add("hidden");
+      moonIconMobile.classList.remove("hidden");
+    }
   }
 }
 updateMobileIcons();
 
-hamburgerBtn.addEventListener("click", () => {
-  mobileMenu.classList.toggle("opacity-0");
-  mobileMenu.classList.toggle("translate-y-0");
-  mobileMenu.classList.toggle("-translate-y-4");
-  mobileMenu.classList.toggle("pointer-events-none");
+// Fungsi sederhana untuk toggle menu
+let isMenuOpen = false;
+function toggleMobileMenu() {
+  isMenuOpen = !isMenuOpen;
 
-  menuOpenIcon.classList.toggle("hidden");
-  menuCloseIcon.classList.toggle("hidden");
-});
+  // Pengecekan agar tidak error
+  if (menuOpenIcon && menuCloseIcon && mobileMenu) {
+    // Toggle icon hamburger
+    menuOpenIcon.classList.toggle("hidden");
+    menuCloseIcon.classList.toggle("hidden");
 
-themeToggleMobile.addEventListener("click", () => {
-  html.classList.toggle("dark");
-  localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
-  updateIcons();
-  updateMobileIcons();
-});
+    // Toggle menu
+    if (isMenuOpen) {
+      mobileMenu.classList.remove("hidden");
+      // Tambah delay kecil untuk animasi
+      requestAnimationFrame(() => {
+        mobileMenu.classList.remove("opacity-0");
+        mobileMenu.classList.remove("pointer-events-none");
+      });
+    } else {
+      mobileMenu.classList.add("opacity-0");
+      mobileMenu.classList.add("pointer-events-none");
+      // Tunggu animasi selesai sebelum hide
+      setTimeout(() => {
+        mobileMenu.classList.add("hidden");
+      }, 200);
+    }
+  }
+}
 
-themeToggle.addEventListener("click", updateMobileIcons);
+// Event listener untuk hamburger button
+if (hamburgerBtn) {
+  hamburgerBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMobileMenu();
+  });
+}
 
+// Theme toggle untuk mobile
+if (themeToggleMobile) {
+  themeToggleMobile.addEventListener("click", () => {
+    html.classList.toggle("dark");
+    localStorage.setItem("theme", html.classList.contains("dark") ? "dark" : "light");
+    updateIcons();
+    updateMobileIcons();
+  });
+}
+
+// Update mobile icons ketika desktop theme berubah
+if (themeToggle) {
+  themeToggle.addEventListener("click", updateMobileIcons);
+}
+
+// Tutup menu saat klik link
 document.querySelectorAll("#mobile-menu a").forEach((link) => {
   link.addEventListener("click", () => {
-    if (!mobileMenu.classList.contains("opacity-0")) {
-      mobileMenu.classList.add("opacity-0", "-translate-y-4", "pointer-events-none");
-      mobileMenu.classList.remove("translate-y-0");
-      menuOpenIcon.classList.remove("hidden");
-      menuCloseIcon.classList.add("hidden");
+    if (isMenuOpen) {
+      toggleMobileMenu();
     }
   });
 });
 
+// Tutup menu saat klik di luar
 document.addEventListener("click", (e) => {
-  if (!hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-    if (!mobileMenu.classList.contains("opacity-0")) {
-      mobileMenu.classList.add("opacity-0", "-translate-y-4", "pointer-events-none");
-      mobileMenu.classList.remove("translate-y-0");
-      menuOpenIcon.classList.remove("hidden");
-      menuCloseIcon.classList.add("hidden");
-    }
+  if (isMenuOpen && hamburgerBtn && mobileMenu && !hamburgerBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
+    toggleMobileMenu();
   }
 });
+
+window.addEventListener("load", () => {
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    // Menambahkan kelas untuk memulai animasi fade out
+    preloader.classList.add("opacity-0");
+
+    // Mengurangi waktu preloader menjadi 2 detik
+    setTimeout(() => {
+      preloader.style.display = "none";
+    }, 2000);
+  }
+});
+
+function openProfileModal() {
+  document.getElementById('profile-modal').classList.remove('hidden');
+}
+
+function closeProfileModal() {
+  document.getElementById('profile-modal').classList.add('hidden');
+}
